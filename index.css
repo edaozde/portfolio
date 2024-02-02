@@ -1,0 +1,361 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;700&display=swap");
+
+/* Theme */
+
+:root {
+    --title-font: "Bebas Neue", sans-serif;
+    --subtitle-font: "Open Sans", sans-serif;
+}
+
+:root[color-scheme="light"] {
+    --bg-color: #f3ecdc;
+    --sub-bg-color: #e0d4b9;
+    --accent-color: #625dc4;
+    --title-color: #3f3f3f;
+    --content-color: #746c5a;
+    --shadow-color: hsl(227, 40%, 51%, 0.3);
+}
+
+:root[color-scheme="dark"] {
+    --bg-color: #1e1e21;
+    --sub-bg-color: #2e3036;
+    --accent-color: #f977ba;
+    --title-color: #eeeeee;
+    --content-color: #8e8fa9;
+    --shadow-color: hsla(226, 20%, 63%, 0.3);
+}
+
+/* Reset */
+
+::selection {
+    background: var(--shadow-color);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    color: var(--title-color);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: radial-gradient(var(--sub-bg-color) 8%, transparent 10%);
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+    background-color: var(--bg-color);
+}
+
+/* Content */
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#colorScheme {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    width: 3.2rem;
+    height: 3.2rem;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    transition: scale 0.3s;
+    background-color: var(--sub-bg-color);
+    background-image: url(./assets/sun.svg);
+    background-size: 60% 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#colorScheme.dark {
+    background-image: url(./assets/moon.png);
+}
+
+#colorScheme:hover {
+    scale: 1.1;
+}
+#colorScheme:active {
+    scale: 1;
+}
+
+main > img {
+    width: clamp(120px, 30%, 180px);
+    filter: saturate(10%) hue-rotate(-30deg);
+    transition: 0.8s all;
+    margin-top: -2.5rem;
+    border-radius: 50%;
+}
+
+main > img:hover {
+    filter: none;
+}
+
+main > h1 {
+    margin: 0;
+    font-size: clamp(3rem, 10vw, 6rem);
+    text-align: center;
+    margin-top: 0.5em;
+    font-weight: normal;
+    font-family: var(--title-font);
+    text-wrap: balance;
+    letter-spacing: -1px;
+    transition: text-shadow 0.3s;
+}
+
+
+main > .subtitle {
+    color: var(--content-color);
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+    text-align: center;
+    margin-top: 0.5em;
+    font-weight: normal;
+    font-family: var(--subtitle-font);
+}
+
+.linkBtn {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: var(--subtitle-font);
+    text-decoration: none;
+}
+
+@media (min-width: 650px) {
+    main > a,
+    section > a {
+        font-size: 1.4rem;
+    }
+}
+
+main > a:hover,
+section > a:hover {
+    filter: saturate(150%);
+}
+
+section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+section > h2 {
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    text-align: center;
+    margin-top: 0.5em;
+    font-family: var(--title-font);
+    font-weight: normal;
+    letter-spacing: -1px;
+}
+
+
+section > h3 {
+
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: clamp(1rem, 3vw, 3rem);
+    text-align: center;
+    margin-top: 0.5em;
+    font-family: var(--title-font);
+    font-weight: normal;
+    letter-spacing: -1px;
+}
+
+
+section > a {
+    display: inline-block;
+    padding: 0.5rem 0.8rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid img {
+    width: 100%;
+    filter: saturate(10%) hue-rotate(-30deg);
+    transition: 0.6s all;
+    border-radius: 1rem;
+}
+
+.grid img:hover {
+    filter: none;
+    translate: 0 -0.5rem;
+    rotate: 1deg;
+}
+
+.grid img:active {
+    translate: 0 0;
+}
+
+.project > p {
+    font-family: var(--subtitle-font);
+    color: var(--content-color);
+    padding: 0 1.5rem;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.project > p a {
+    color: var(--accent-color);
+}
+
+#slides {
+    padding-bottom: 7rem;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+    padding: 1rem 1rem 2rem 1rem;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+}
+
+footer > a {
+    width: 4rem;
+    height: 4rem;
+    padding: 1em;
+    display: flex;
+    box-sizing: border-box;
+    transition: 0.5s all;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    background-color: var(--sub-bg-color);
+}
+
+@media (max-width: 600px) {
+    footer > a {
+        width: 3.4rem;
+        height: 3.4rem;
+        padding: 0.8em;
+    }
+}
+
+footer > a:hover {
+    opacity: 1;
+    margin-top: -0.5rem;
+}
+
+footer > a:hover path {
+    fill: var(--title-color);
+}
+
+footer > a:active {
+    transform: none;
+    box-shadow: none;
+    margin-top: 0;
+}
+
+footer > a:not(:last-child) {
+    margin-right: 0.8rem;
+}
+
+/* Animations */
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+main > img {
+    opacity: 0;
+    animation: 0.5s appear ease-in-out forwards;
+}
+
+main > h1 {
+    opacity: 0;
+    animation: 0.5s appear ease-in-out forwards 0.2s;
+}
+
+main > p {
+    opacity: 0;
+    animation: 0.5s appear ease-in-out forwards 0.4s;
+}
+
+main > a {
+    opacity: 0;
+    animation: 0.5s appear ease-in-out forwards 0.5s;
+}
+
+footer > * {
+    opacity: 0;
+    animation: 0.5s appear ease-in-out forwards calc(var(--footer-index, 0) * 0.1s + 0.7s);
+}
+
+@keyframes coucou {
+    0% {
+        transform: rotate(0deg);
+    }
+    5% {
+        transform: rotate(15deg);
+    }
+    10% {
+        transform: rotate(-15deg);
+    }
+    15% {
+        transform: rotate(15deg);
+    }
+    20% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+#👋 {
+    display: inline-block;
+    animation: coucou 8s ease-in-out infinite 1.5s;
+}
+
+@keyframes upAndDown {
+    0% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 0.5rem;
+    }
+    100% {
+        translate: 0 0;
+    }
+}
+
+.linkBtn > span {
+    display: inline-block;
+    animation: upAndDown 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion) {
+    * {
+        animation-duration: 0;
+        animation-delay: 0;
+    }
+}
